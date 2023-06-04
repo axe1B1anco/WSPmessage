@@ -23,15 +23,21 @@
             margin-bottom: 20px;
         }
 
-        #whatsapp-button {
-            width: 100%;
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .whatsapp-button {
+            width: 48%;
         }
 
         .signature {
             text-align: center;
             font-style: italic;
             margin-top: 20px;
-            color: #0453CB; /* Color de la firma en blanco */
+            color: #fff; /* Color de la firma en blanco */
         }
     </style>
 </head>
@@ -48,7 +54,10 @@
         <input type="text" class="form-control" id="message-input" placeholder="Escribe tu mensaje">
     </div>
 
-    <button id="whatsapp-button" class="btn btn-primary">Enviar mensaje por WhatsApp</button>
+    <div class="button-container">
+        <button id="web-whatsapp-button" class="btn btn-primary whatsapp-button">Enviar por WhatsApp Web</button>
+        <button id="windows-whatsapp-button" class="btn btn-primary whatsapp-button">Enviar por WhatsApp (Windows)</button>
+    </div>
 
     <div class="signature">
         By Axel Blanco
@@ -57,7 +66,7 @@
 
 <script>
   // Función para abrir WhatsApp Web con el número de teléfono y mensaje ingresados
-  function enviarMensajeWhatsApp() {
+  function enviarMensajeWhatsAppWeb() {
     var numero = document.getElementById("phone-input").value; // Obtiene el número de teléfono ingresado en el campo de texto
     var mensaje = document.getElementById("message-input").value; // Obtiene el mensaje ingresado en el campo de texto
 
@@ -68,8 +77,23 @@
     window.open(url);
   }
 
-  // Asigna la función "enviarMensajeWhatsApp" al evento "click" del botón
-  document.getElementById("whatsapp-button").addEventListener("click", enviarMensajeWhatsApp);
+  // Función para abrir WhatsApp en Windows con el número de teléfono y mensaje ingresados
+  function enviarMensajeWhatsAppWindows() {
+    var numero = document.getElementById("phone-input").value; // Obtiene el número de teléfono ingresado en el campo de texto
+    var mensaje = document.getElementById("message-input").value; // Obtiene el mensaje ingresado en el campo de texto
+
+    // Codifica el número y mensaje para que sean válidos en una URL
+    var url = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(numero) + "&text=" + encodeURIComponent(mensaje);
+
+    // Abre una nueva ventana o pestaña con la URL de WhatsApp en Windows
+    window.open(url);
+  }
+
+  // Asigna la función "enviarMensajeWhatsAppWeb" al evento "click" del botón de WhatsApp Web
+  document.getElementById("web-whatsapp-button").addEventListener("click", enviarMensajeWhatsAppWeb);
+
+  // Asigna la función "enviarMensajeWhatsAppWindows" al evento "click" del botón de WhatsApp en Windows
+  document.getElementById("windows-whatsapp-button").addEventListener("click", enviarMensajeWhatsAppWindows);
 </script>
 
 </body>
