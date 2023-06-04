@@ -13,88 +13,7 @@
         }
 
         #whatsapp-button {
-            width: 50%;
-        }
-
-        .signature {
-            text-align: center;
-            font-style: italic;
-            margin-top: 75px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="form-group">
-        <label for="phone-input">Ingresa el número de teléfono:</label>
-        <input type="text" class="form-control" id="phone-input" placeholder="Ejemplo: 541155556666">
-    </div>
-
-    <div class="form-group">
-        <label for="message-input">Ingresa el mensaje:</label>
-        <input type="text" class="form-control" id="message-input" placeholder="Escribe tu mensaje">
-    </div>
-
-    <button id="whatsapp-button" class="btn btn-primary">Enviar mensaje por WhatsApp</button>
-
-    <div class="signature">
-        By Axel Blanco
-    </div>
-</div>
-
-<script>
-  // Función para abrir la ventana de WhatsApp con el número de teléfono y mensaje ingresados
-  function enviarMensajeWhatsApp() {
-    var numero = document.getElementById("phone-input").value; // Obtiene el número de teléfono ingresado en el campo de texto
-    var mensaje = document.getElementById("message-input").value; // Obtiene el mensaje ingresado en el campo de texto
-
-    // Codifica el número y mensaje para que sean válidos en una URL
-    var url = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(numero) + "&text=" + encodeURIComponent(mensaje);
-
-    // Abre una nueva ventana o pestaña con la URL de WhatsApp
-    window.open(url);
-  }
-
-  // Asigna la función "enviarMensajeWhatsApp" al evento "click" del botón
-  document.getElementById("whatsapp-button").addEventListener("click", enviarMensajeWhatsApp);
-</script>
-
-</body>
-</html>
-Puedes copiar y pegar el código en un nuevo archivo llamado index.html en la raíz de tu repositorio en GitHub. Luego, sigue los pasos que mencioné anteriormente para configurar GitHub Pages y podrás acceder a tu página web a través de la URL proporcionada.
-
-Recuerda que después de subir el archivo index.html, puedes eliminar el archivo HTML anterior que subiste a GitHub.
-
-Espero que esto te ayude a completar la carga de tu página web en GitHub Pages. Si tienes más preguntas, no dudes en preguntar.
-
-
-
-
-
-User
-el codigo me exige abrir la aplicacion Whatsapp, por favor realiza el cambio para que abra whatsap WEB
-ChatGPT
-Disculpa por la confusión anterior. Para abrir WhatsApp Web en lugar de la aplicación móvil de WhatsApp, debemos hacer un pequeño cambio en el código. A continuación, te muestro el código actualizado:
-
-html
-Copy code
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Enviar mensaje por WhatsApp</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <style>
-        body {
-            padding: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        #whatsapp-button {
-            width: 100%;
+            width: 25%;
         }
 
         .signature {
@@ -109,7 +28,7 @@ Copy code
 <div class="container">
     <div class="form-group">
         <label for="phone-input">Ingresa el número de teléfono:</label>
-        <input type="text" class="form-control" id="phone-input" placeholder="Ejemplo: 1234567890">
+        <input type="text" class="form-control" id="phone-input" placeholder="Ejemplo: 5491155556666">
     </div>
 
     <div class="form-group">
