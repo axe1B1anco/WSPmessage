@@ -17,20 +17,16 @@
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
+            text-align: center; /* Centrar el contenido horizontalmente */
         }
 
         .form-group {
             margin-bottom: 20px;
         }
 
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
         .whatsapp-button {
-            width: 48%;
+            width: 100%;
+            margin-bottom: 10px; /* Espacio entre los botones */
         }
 
         .signature {
@@ -54,10 +50,9 @@
         <input type="text" class="form-control" id="message-input" placeholder="Escribe tu mensaje">
     </div>
 
-    <div class="button-container">
-        <button id="web-whatsapp-button" class="btn btn-primary whatsapp-button">Enviar por WhatsApp Web</button>
-        <button id="windows-whatsapp-button" class="btn btn-primary whatsapp-button">Enviar por WhatsApp (Windows)</button>
-    </div>
+    <button id="web-whatsapp-button" class="btn btn-primary whatsapp-button">Enviar por WhatsApp Web</button>
+
+    <button id="windows-whatsapp-button" class="btn btn-primary whatsapp-button">Enviar por WhatsApp (Windows)</button>
 
     <div class="signature">
         By Axel Blanco
@@ -83,10 +78,10 @@
     var mensaje = document.getElementById("message-input").value; // Obtiene el mensaje ingresado en el campo de texto
 
     // Codifica el número y mensaje para que sean válidos en una URL
-    var url = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(numero) + "&text=" + encodeURIComponent(mensaje);
+    var url = "whatsapp://send?phone=" + encodeURIComponent(numero) + "&text=" + encodeURIComponent(mensaje);
 
-    // Abre una nueva ventana o pestaña con la URL de WhatsApp en Windows
-    window.open(url);
+    // Abre la aplicación de WhatsApp en Windows si está instalada
+    window.location.href = url;
   }
 
   // Asigna la función "enviarMensajeWhatsAppWeb" al evento "click" del botón de WhatsApp Web
