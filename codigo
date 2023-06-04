@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enviar mensaje por WhatsApp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        #whatsapp-button {
+            width: 100%;
+        }
+
+        .signature {
+            text-align: center;
+            font-style: italic;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-group">
+        <label for="phone-input">Ingresa el número de teléfono:</label>
+        <input type="text" class="form-control" id="phone-input" placeholder="Ejemplo: 1234567890">
+    </div>
+
+    <div class="form-group">
+        <label for="message-input">Ingresa el mensaje:</label>
+        <input type="text" class="form-control" id="message-input" placeholder="Escribe tu mensaje">
+    </div>
+
+    <button id="whatsapp-button" class="btn btn-primary">Enviar mensaje por WhatsApp</button>
+
+    <div class="signature">
+        By Axel Blanco
+    </div>
+</div>
+
+<script>
+  // Función para abrir la ventana de WhatsApp con el número de teléfono y mensaje ingresados
+  function enviarMensajeWhatsApp() {
+    var numero = document.getElementById("phone-input").value; // Obtiene el número de teléfono ingresado en el campo de texto
+    var mensaje = document.getElementById("message-input").value; // Obtiene el mensaje ingresado en el campo de texto
+
+    // Codifica el número y mensaje para que sean válidos en una URL
+    var url = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(numero) + "&text=" + encodeURIComponent(mensaje);
+
+    // Abre una nueva ventana o pestaña con la URL de WhatsApp
+    window.open(url);
+  }
+
+  // Asigna la función "enviarMensajeWhatsApp" al evento "click" del botón
+  document.getElementById("whatsapp-button").addEventListener("click", enviarMensajeWhatsApp);
+</script>
+
+</body>
+</html>
